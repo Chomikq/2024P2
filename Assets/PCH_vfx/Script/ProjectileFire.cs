@@ -9,18 +9,30 @@ public class ProjectileFire : MonoBehaviour
     public GameObject CastLocation;
 
     public float ProjectileSpeed;
+    public float fireRate=0.5f;
+    public float nextFireTime=0f;
+    
     
     public GameObject ProjectilePrefab;
     public GameObject CastPrefab;
+    
+    private bool hasFired=false;
 
 
     // Update is called once per frame
     void Update()
-    {
-         if(Input.GetKeyDown(KeyCode.Z))
+    {    if(nextFireTime >0) //if there is a shoot cooldown...
+          {
+               nextFireTime-= Time.deltaTime;
+               nextFireTime = Mathf.Max(nextFireTime,0);
+          }
+         if(!hasFired && Input.GetKeyDown(KeyCode.Z))
         {
              GetComponent<Animator>().SetTrigger("Cast");
              GetComponent<Animator>().SetTrigger("FireProjectile");
+             nextFireTime =0.1f; 
+             hasFired= true;
+
         }  
      }
  
@@ -31,4 +43,5 @@ public class ProjectileFire : MonoBehaviour
         Instantiate(CastPrefab,CastLocation.transform.position,Quaternion.identity);
 
      }
+    
 }

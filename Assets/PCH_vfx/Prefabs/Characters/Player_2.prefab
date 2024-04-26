@@ -6708,6 +6708,8 @@ MonoBehaviour:
   ProjectileFireLocation: {fileID: 3474480670083299757}
   CastLocation: {fileID: 1534666452386538452}
   ProjectileSpeed: 10
+  fireRate: 0.5
+  nextFireTime: 0.1
   ProjectilePrefab: {fileID: 2157664549433815322, guid: f8222a06c0e1a69439cf4b8a48aa781f,
     type: 3}
   CastPrefab: {fileID: 7975440543636949046, guid: 3abf38f1643be3f488c7e562b81f7e04,
