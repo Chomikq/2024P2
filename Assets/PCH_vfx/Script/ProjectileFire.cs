@@ -25,6 +25,7 @@ public class ProjectileFire : MonoBehaviour
           {
                nextFireTime-= Time.deltaTime;
                nextFireTime = Mathf.Max(nextFireTime,0);
+               hasFired = false;
           }
          if(!hasFired && Input.GetKeyDown(KeyCode.Z))
         {
